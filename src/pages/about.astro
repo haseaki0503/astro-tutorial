@@ -1,0 +1,54 @@
+---
+import "../styles/global.css";
+
+const pageTitle = "About Me";
+
+const identity = {
+  firstName: "Akira",
+  country: "Japan",
+  occupation: "Product Manager",
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "React"];
+
+const skillColor = "green";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+	<style define:vars={{skillColor}}>
+		h1 {
+			color: #333333;
+			font-size: 4rem;
+		}
+		.skill {
+			color: var(--skillColor);
+			font-weight: bold;
+		}
+	</style>
+  </head>
+  <body>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+
+    <h1>{pageTitle}</h1>
+    <h2>... and my new Astro site!</h2>
+
+    <ul>
+      <li>Name: {identity.firstName}</li>
+      <li>Country: {identity.country}</li>
+      <li>Occupation: {identity.occupation}</li>
+    </ul>
+
+    <h3>Skills</h3>
+    <ul class="skill">
+      {skills.map((skill) => <li>{skill}</li>)}
+    </ul>
+
+  </body>
+</html>
